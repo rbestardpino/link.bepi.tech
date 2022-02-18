@@ -43,7 +43,7 @@ export default function Home() {
     const valid = await validSlug(_slug);
     if (!valid) {
       setSlug("");
-      toast.error(`Slug "${_slug}" in use, try again`);
+      toast.error(`Slug "${_slug}" is in use, try with another`);
       setSearchingSlug(false);
       return;
     }
@@ -84,6 +84,28 @@ export default function Home() {
           justifyContent="flex-start"
           alignItems="stretch"
         >
+          {finalUrl && (
+            <>
+              <Grid item xs>
+                <Typography variant="h6">Shortened link:</Typography>
+              </Grid>
+              <Grid item xs>
+                {/* TODO: clip text if overflow */}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  endIcon={<CopyAllOutlined />}
+                  onClick={() => {
+                    navigator.clipboard.writeText(finalUrl);
+                    toast.success("Link copied to clipboard");
+                  }}
+                >
+                  {finalUrl}
+                </Button>
+              </Grid>
+            </>
+          )}
           <Grid item xs>
             <IconTextField
               label="URL (required)"
@@ -108,35 +130,19 @@ export default function Home() {
               disabled={errorUrl || !url || searchingSlug}
               fullWidth
               variant="contained"
-              color="primary"
+              color="secondary"
               startIcon={<SendOutlined />}
               onClick={handleSubmit}
             >
-              {searchingSlug ? "VALIDATING SLUG..." : "SHORTEN URL"}
+              {searchingSlug
+                ? "VALIDATING SLUG..."
+                : !url
+                ? "URL FIELD IS REQUIRED"
+                : errorUrl
+                ? "INVALID URL"
+                : "SHORTEN URL"}
             </LoadingButton>
           </Grid>
-          {finalUrl && (
-            <>
-              <Grid item xs>
-                <Typography variant="h6">Shortened link:</Typography>
-              </Grid>
-              <Grid item xs>
-                {/* TODO: clip text if overflow */}
-                <Button
-                  variant="outlined"
-                  color="inherit"
-                  fullWidth
-                  endIcon={<CopyAllOutlined />}
-                  onClick={() => {
-                    navigator.clipboard.writeText(finalUrl);
-                    toast.success("Link copied to clipboard");
-                  }}
-                >
-                  {finalUrl}
-                </Button>
-              </Grid>
-            </>
-          )}
         </Grid>
       </Container>
     </main>
