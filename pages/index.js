@@ -40,7 +40,7 @@ export default function Home() {
     }
 
     setSearchingSlug(true);
-    const valid = validSlug(_slug);
+    const valid = await validSlug(_slug);
     if (!valid) {
       setSlug("");
       toast.error(`Slug "${_slug}" in use, try again`);
