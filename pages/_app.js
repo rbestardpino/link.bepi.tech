@@ -7,8 +7,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import Head from "next/head";
 import PropTypes from "prop-types";
 import * as React from "react";
-import Footer from "../components/Footer";
 import { Toaster } from "react-hot-toast";
+import Footer from "../components/Footer";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

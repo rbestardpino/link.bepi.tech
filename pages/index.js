@@ -1,18 +1,20 @@
 import IconTextField from "@components/IconTextField";
+import { db } from "@lib/firebase";
 import { createSlug, isValidUrl, validSlug } from "@lib/utils";
 import {
+  CopyAllOutlined,
   Link,
   PushPinOutlined,
   SendOutlined,
-  Save,
-  CopyAllOutlined,
 } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
-import { Grid, Container, Card, Typography, Button } from "@mui/material";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { doc, setDoc } from "firebase/firestore";
 import Head from "next/head";
 import { useState } from "react";
-import { db } from "@lib/firebase";
-import { doc, getDoc, setDoc } from "firebase/firestore";
 import toast from "react-hot-toast";
 
 export default function Home() {
