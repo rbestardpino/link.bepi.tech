@@ -45,6 +45,7 @@ export default function Footer() {
                   <a
                     href="https://github.com/bepi-tech/link.bepi.tech"
                     target="_blank"
+                    rel="noreferrer"
                     style={{ color: "inherit", textDecoration: "inherit" }}
                   >
                     <Typography variant="body2" fontSize={11}>
@@ -76,6 +77,7 @@ export default function Footer() {
               <a
                 href="https://bepi.tech"
                 target="_blank"
+                rel="noreferrer"
                 style={{ color: "inherit", textDecoration: "inherit" }}
               >
                 <Typography variant="body2" fontSize={11}>

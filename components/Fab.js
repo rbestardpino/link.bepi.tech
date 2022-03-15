@@ -38,20 +38,21 @@ export default function Fab() {
           <DialogContentText variant="h6">
             Advantages over other URL Shorteners:
           </DialogContentText>
-          <DialogContentText>It's FREE</DialogContentText>
+          <DialogContentText>It&apos;s FREE</DialogContentText>
           <DialogContentText>
-            It's extremely simple and easy to use
+            It&apos;s extremely simple and easy to use
           </DialogContentText>
           <DialogContentText>
-            It's open source, so you can check that your data isn't being used
-            to gain profit
+            It&apos;s open source, so you can check that your data isn&apos;t
+            being used to gain profit
           </DialogContentText>
-          <DialogContentText>It's secure and reliable</DialogContentText>
+          <DialogContentText>It&apos;s secure and reliable</DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button
             href="https://github.com/bepi-tech/link.bepi.tech"
             target="_blank"
+            rel="noreferrer"
             variant="contained"
             color="secondary"
             onClick={handleClose}
@@ -62,6 +63,7 @@ export default function Fab() {
           <Button
             href="https://www.bepi.tech/#"
             target="_blank"
+            rel="noreferrer"
             variant="contained"
             color="secondary"
             onClick={handleClose}
